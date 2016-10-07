@@ -4,9 +4,10 @@ import { BrowserRouter, Match, Miss, Link } from 'react-router';
 // Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { lightBlue500 } from 'material-ui/styles/colors';
+import { lightBlue500, white } from 'material-ui/styles/colors';
 
 import AppBar from 'material-ui/AppBar';
+import SvgIcon from 'material-ui/SvgIcon';
 import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
@@ -17,9 +18,9 @@ import Home from '../pages/home/Home';
 import Sudoku from '../pages/sudoku/Sudoku';
 import NotFound from '../pages/not-found/NotFound';
 
-
 // Styles
 import './App.css';
+import Github from './Github.js';
 
 const muiTheme = getMuiTheme({
 	palette: {
@@ -44,13 +45,22 @@ class App extends Component {
 		open: false
 	});
 
+	handleLink() {
+		let win = window.open('https://github.com/HofmannZ/vu/tree/master/year-1/computational-thinking', '_blank');
+		win.focus();
+	}
+
 	render() {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
 				<BrowserRouter>
 					<section>
 						<nav>
-							<AppBar title="Sudoku App" onLeftIconButtonTouchTap={this.handleToggle} />
+							<AppBar
+								title="Sudoku App"
+								onLeftIconButtonTouchTap={this.handleToggle}
+								iconElementRight={<IconButton onTouchTap={this.handleLink}><Github /></IconButton>}
+							/>
 							<Drawer
 								docked={false}
 								open={this.state.open}

@@ -16,7 +16,7 @@ const grid = [
 	[0, 0, 2, 6, 0, 9, 5, 0, 0],
 	[8, 0, 0, 2, 0, 3, 0, 0, 9],
 	[0, 0, 5, 0, 1, 0, 3, 0, 0]
-]
+];
 
 class SudokuAlgorithm extends Component {
 	constructor() {
@@ -123,12 +123,18 @@ class SudokuAlgorithm extends Component {
 	}
 
 	render() {
-		if (!this.solved()) {
-			console.log('SUDOKU cannot be solved');
-			return (
-				<SudokuGrid grid={grid} />
-			);
-		} else {			
+		if (this.props.hasToBeSolved) {
+			if (!this.solved()) {
+				console.log('Sudoku cannot be solved!');
+				return (
+					<SudokuGrid grid={grid} />
+				);
+			} else {
+				return (
+					<SudokuGrid grid={grid} />
+				);
+			}
+		} else {
 			return (
 				<SudokuGrid grid={grid} />
 			);

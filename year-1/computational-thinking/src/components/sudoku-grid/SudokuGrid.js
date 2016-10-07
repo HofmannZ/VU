@@ -12,7 +12,7 @@ class SudokuGrid extends Component {
 	}
 
 	random() {
-		return Math.floor((Math.random() * 9999999999) + 1);
+		return Math.floor((Math.random() * 999999999) + 1);
 	}
 
 	renderTR(tr) {

@@ -23,7 +23,7 @@ class NotFound extends Component {
 					</CardText>
 					<CardActions>
 						<Link to="/">
-							<RaisedButton label="Bring me home!" />
+							<RaisedButton label="Bring me home!" primary={true} />
 						</Link>
 					</CardActions>
 				</Card>

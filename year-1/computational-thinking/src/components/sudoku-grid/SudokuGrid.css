@@ -2,7 +2,7 @@
 	max-width: 568px;
 	padding: 16px 0;
 	border-collapse: collapse;
-	margin: 0 5vw;
+	margin: 2.5vh 5vw;
 }
 
 colgroup, tbody {
@@ -19,7 +19,7 @@ td {
 
 @media (min-width: 640px) {
 	.sudoku-grid {
-		margin: 0 auto;
+		margin: 5vh auto;
 	}
 
 	td {

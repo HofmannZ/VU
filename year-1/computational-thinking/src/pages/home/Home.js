@@ -1,7 +1,9 @@
 import React, { Component } from 'react';
+import { Link } from 'react-router';
 
 // Material UI
-import { Card, CardTitle, CardText } from 'material-ui/Card';
+import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
+import RaisedButton from 'material-ui/RaisedButton';
 
 // Styles
 import './Home.css';
@@ -33,6 +35,11 @@ class Home extends Component {
 							<p>Bla</p>
 						</section>
 					</CardText>
+					<CardActions>
+						<Link to="/sudoku">
+							<RaisedButton label="Show me the Sudoku!" primary={true} />
+						</Link>
+					</CardActions>
 				</Card>
 			</section>
 		);
