@@ -2,7 +2,7 @@
 Code related to my education at the VU University Amsterdam (VU)
 
 ## Computational Thinking - Project Assignment: Sudoku (group assignment)
-Project 1 was an individual assignment. It's main goal was to find a new way to digitalize the International Students Guide Amsterdam(ISGA.) Based on a target group analysis. I chose to display the timeline chapters as the main feature of the digital ISGA. The timeline feature uses a JavaScript clock which fetches data from the Firebase database corresponding the current time. All the code had to be hand written, including all logic that runs in the background.
+For the project assignment of Computational Thinking we had to devise a algorithm to would solve 50 given Sudoku's and calclualte the sum of the first 3 digets in the top rigth corner. We also diceded to implement the algorithm, to get an idea of how it would work on the web. The site is and algorithm are written in ES6 JavaScript, with Facebook's famous React.js libary. The user interface also implemnts best practices form the Google Material Design guidelines.
 
 #### Main features:
 * Backtrack bruteforce algorithm
