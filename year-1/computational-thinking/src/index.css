@@ -1,0 +1,30 @@
+body {
+	margin: 0;
+	padding: 0;
+}
+
+a {
+	text-decoration: none;
+}
+
+.drawer__menu-item:first-child {
+	margin-top: 5vh;
+}
+
+.card-wrapper {
+	transition: all .25s ease-in-out;
+	margin: 0 auto;
+	max-width: 600px;
+	width: 100%;
+}
+
+@media (min-width: 640px) {
+	.card-wrapper {
+		padding-top: 60px;
+	}
+}
+
+.card {
+	min-height: 30vh;
+	padding-bottom: 16px;
+}

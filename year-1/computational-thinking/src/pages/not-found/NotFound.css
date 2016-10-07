@@ -1,0 +1,13 @@
+.venn-diagram {
+	display: inline-block;
+	width: 45%;
+	margin-left: 10%;
+	vertical-align: top;
+}
+
+.venn-explanation {
+	display: inline-block;
+	width: 45%;
+	margin: 0;
+	vertical-align: top;
+}
