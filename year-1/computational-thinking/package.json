@@ -1,11 +1,20 @@
 {
-  "name": "sudoku-app",
+  "name": "computational-thinking",
   "version": "0.1.0",
   "description": "For the course Computational Thinking at the VU University Amsterdam, we made an algorithm to solve Sudoku puzzles.",
   "private": true,
-  "author": {
+	"repository": {
+    "type": "git",
+    "url": "git+https://github.com/HofmannZ/vu/tree/master/year-1/computational-thinking.git"
+  },
+	"homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
+	"author": {
     "name": "Zino Hofmann",
     "email": "z.hofmann@student.vu.nl"
+  },
+  "license": "Apache-2.0",
+  "bugs": {
+    "url": "https://github.com/HofmannZ/vu/issues"
   },
   "devDependencies": {
     "react-scripts": "0.6.1"
