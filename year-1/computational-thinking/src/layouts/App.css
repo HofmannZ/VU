@@ -1,24 +1,41 @@
-.App {
-  text-align: center;
+.page-enter {
+	transition: all 225ms cubic-bezier(0.4, 0.0, 1, 1);
+	z-index: 2;
+	top: 100vh;
+	opacity: 0.001;
 }
 
-.App-logo {
-  animation: App-logo-spin infinite 20s linear;
-  height: 80px;
+.page-enter.page-enter-active {
+	top: 0;
+	opacity: 1;
 }
 
-.App-header {
-  background-color: #222;
-  height: 150px;
-  padding: 20px;
-  color: white;
+.page-leave {
+	transition: all 195ms cubic-bezier(0.0, 0.0, 0.2, 1);
+	z-index: 1;
+	top: 0;
+	opacity: 1;
 }
 
-.App-intro {
-  font-size: large;
+.page-leave.page-leave-active {
+	top: -100vh;
+	opacity: 0.001;
 }
 
-@keyframes App-logo-spin {
-  from { transform: rotate(0deg); }
-  to { transform: rotate(360deg); }
+@media (min-width: 640px) {
+	.page-enter {
+		padding: 0;
+	}
+
+	.page-enter.page-enter-active {
+		padding: 60px 0;
+	}
+
+	.page-leave {
+		padding: 60px 0;
+	}
+
+	.page-leave.page-leave-active {
+		padding: 0;
+	}
 }

@@ -3,12 +3,12 @@
   "version": "0.1.0",
   "description": "For the course Computational Thinking at the VU University Amsterdam, we made an algorithm to solve Sudoku puzzles.",
   "private": true,
-	"repository": {
+  "repository": {
     "type": "git",
     "url": "git+https://github.com/HofmannZ/vu/tree/master/year-1/computational-thinking.git"
   },
-	"homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
-	"author": {
+  "homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
+  "author": {
     "name": "Zino Hofmann",
     "email": "z.hofmann@student.vu.nl"
   },
@@ -23,8 +23,9 @@
     "history": "^4.3.0",
     "material-ui": "^0.16.0",
     "react": "^15.3.2",
+    "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^4.0.0-alpha.4",
+    "react-router": "^2.8.1",
     "react-tap-event-plugin": "^1.0.0"
   },
   "scripts": {

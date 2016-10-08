@@ -12,6 +12,23 @@ import './Sudoku.css';
 // Components
 import SudokuAlgorithm from '../../components/sudoku-algorithm/SudokuAlgorithm';
 
+const ExampleFormat = () => {
+	return (
+		<pre>
+{`  Grid 01
+  003020600
+  900305001
+  001806400
+  008102900
+  700000008
+  006708200
+  002609500
+  800203009
+  005010300`}
+		</pre>
+	);
+};
+
 class Sudoku extends Component {
 	constructor() {
 		super();
@@ -65,7 +82,7 @@ class Sudoku extends Component {
 				const rawRow = lines[i].split('');
 				let row = [];
 
-				for (let j = 0; j < rawRow.length - 1; j++) {
+				for (let j = 0; j < 9; j++) {
 					let diget = Number(rawRow[j]);
 					row.push(diget);
 				}
@@ -193,20 +210,10 @@ class Sudoku extends Component {
 					actions={dialogActions}
 					modal={true}
 					open={this.state.openDialog}
+					autoScrollBodyContent={true}
 				>
 					<p>Please acknowledge that our algorithm only takes the following format:</p>
-					<pre>
-{`  Grid 01
-  003020600
-  900305001
-  001806400
-  008102900
-  700000008
-  006708200
-  002609500
-  800203009
-  005010300`}
-					</pre>
+					<ExampleFormat />
 					<p>Note that; the 1st line and every 10th line after it, are descarded and not procesed.</p>
 				</Dialog>
 			</section>

@@ -3,6 +3,10 @@ body {
 	padding: 0;
 }
 
+main {
+	position: relative;
+}
+
 section h3 {
 	margin-top: 32px;
 }
@@ -20,14 +24,13 @@ a {
 }
 
 .card-wrapper {
-	transition: all .25s ease-in-out;
-	margin: 0 auto;
+	position: absolute;
+	top: 0;
+	left: 0;
+	left: 50%;
+	transform: translateX(-50%);
 	max-width: 600px;
-	width: 100%;
-}
-
-.card {
-	min-height: 30vh;
+	width: 100vw;
 }
 
 .card__action-button {
