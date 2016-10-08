@@ -3,6 +3,14 @@ body {
 	padding: 0;
 }
 
+section h3 {
+	margin-top: 32px;
+}
+
+.card section:first-of-type > h3 {
+	margin-top: 0;
+}
+
 a {
 	text-decoration: none;
 }
@@ -28,6 +36,6 @@ a {
 
 @media (min-width: 640px) {
 	.card-wrapper {
-		padding-top: 60px;
+		padding: 60px 0;
 	}
 }

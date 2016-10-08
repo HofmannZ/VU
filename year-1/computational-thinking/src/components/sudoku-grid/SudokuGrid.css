@@ -2,7 +2,7 @@
 	max-width: 568px;
 	padding: 16px 0;
 	border-collapse: collapse;
-	margin: 2.5vh 5vw;
+	margin: 2.5vh 9.5vw;
 }
 
 colgroup, tbody {
@@ -11,8 +11,8 @@ colgroup, tbody {
 
 td {
 	border: solid thin;
-	height: 10vw;
-	width: 10vw;
+	height: 9vw;
+	width: 9vw;
 	text-align: center;
 	padding: 0;
 }
@@ -23,7 +23,7 @@ td {
 	}
 
 	td {
-		height: 3rem;
-		width: 3rem;
+		height: 2.6rem;
+		width: 2.6rem;
 	}
 }

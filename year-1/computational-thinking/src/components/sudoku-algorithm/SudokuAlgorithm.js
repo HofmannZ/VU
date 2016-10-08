@@ -1,10 +1,10 @@
 import React, { Component } from 'react';
 
-// components
-import SudokuGrid from '../sudoku-grid/SudokuGrid';
-
 // Styles
 import './SudokuAlgorithm.css';
+
+// components
+import SudokuGrid from '../sudoku-grid/SudokuGrid';
 
 class SudokuAlgorithm extends Component {
 	constructor(props) {
@@ -111,9 +111,8 @@ class SudokuAlgorithm extends Component {
 
 		if (this.props.hasToBeSolved) {
 			if (!this.solved()) {
-				console.log('Sudoku cannot be solved!');
 				return (
-					<SudokuGrid grid={this.grid} />
+					<SudokuGrid grid={this.grid} captation="Sudoku cannot be solved!" />
 				);
 			} else {
 				return (

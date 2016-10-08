@@ -14,11 +14,15 @@ import MenuItem from 'material-ui/MenuItem';
 
 // Pages
 import Home from '../pages/home/Home';
+import Research from '../pages/research/Research';
 import Sudoku from '../pages/sudoku/Sudoku';
+import Team from '../pages/team/Team';
 import NotFound from '../pages/not-found/NotFound';
 
 // Styles
 import './App.css';
+
+// Components
 import Github from './Github.js';
 
 const muiTheme = getMuiTheme({
@@ -79,16 +83,28 @@ class App extends Component {
 										Home
 									</MenuItem>
 								</Link>
+								<Link to="/research">
+									<MenuItem onTouchTap={this.handleClose}>
+										Research
+									</MenuItem>
+								</Link>
 								<Link to="/sudoku">
 									<MenuItem onTouchTap={this.handleClose}>
 										Sudoku
+									</MenuItem>
+								</Link>
+								<Link to="/team">
+									<MenuItem onTouchTap={this.handleClose}>
+										Meet the Team
 									</MenuItem>
 								</Link>
 							</Drawer>
 						</nav>
 						<main>
 							<Match exactly pattern="/" component={Home} />
+							<Match pattern="/research" component={Research} />
 							<Match pattern="/sudoku" component={Sudoku} />
+							<Match pattern="/team" component={Team} />
 							<Miss component={NotFound} />
 						</main>
 					</section>
