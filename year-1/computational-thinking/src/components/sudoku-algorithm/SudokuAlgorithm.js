@@ -6,45 +6,29 @@ import SudokuGrid from '../sudoku-grid/SudokuGrid';
 // Styles
 import './SudokuAlgorithm.css';
 
-const grid = [
-	[0, 0, 3, 0, 2, 0, 6, 0, 0],
-	[9, 0, 0, 3, 0, 5, 0, 0, 1],
-	[0, 0, 1, 8, 0, 6, 4, 0, 0],
-	[0, 0, 8, 1, 0, 2, 9, 0, 0],
-	[7, 0, 0, 0, 0, 0, 0, 0, 8],
-	[0, 0, 6, 7, 0, 8, 2, 0, 0],
-	[0, 0, 2, 6, 0, 9, 5, 0, 0],
-	[8, 0, 0, 2, 0, 3, 0, 0, 9],
-	[0, 0, 5, 0, 1, 0, 3, 0, 0]
-];
-
 class SudokuAlgorithm extends Component {
-	constructor() {
-		super();
+	constructor(props) {
+		super(props);
 
 		this.isValid = this.isValid.bind(this);
 		this.getNextCell = this.getNextCell.bind(this);
 		this.solve = this.solve.bind(this);
 		this.solved = this.solved.bind(this);
-
-		this.state = {
-			solved: false
-		};
 	}
 
 	isValid(cell, value) {
-		if (grid[cell.row][cell.col] !== 0) {
+		if (this.grid[cell.row][cell.col] !== 0) {
 			return false;
 		}
 
 		for (let i = 0; i < 9; i++) {
-			if (grid[cell.row][i] === value) {
+			if (this.grid[cell.row][i] === value) {
 				return false;
 			}
 		}
 
 		for (let i = 0; i < 9; i++) {
-			if (grid[i][cell.col] === value) {
+			if (this.grid[i][cell.col] === value) {
 				return false;
 			}
 		}
@@ -56,7 +40,7 @@ class SudokuAlgorithm extends Component {
 
 		for (let x = x1; x <= x2; x++) {
 			for (let y = y1; y <= y2; y++) {
-				if (grid[x][y] === value) {
+				if (this.grid[x][y] === value) {
 					return false;
 				}
 			}
@@ -91,7 +75,7 @@ class SudokuAlgorithm extends Component {
 			return true;
 		}
 
-		if (grid[cur.row][cur.col] !== 0) {
+		if (this.grid[cur.row][cur.col] !== 0) {
 			return this.solve(this.getNextCell(cur));
 	  }
 
@@ -102,13 +86,13 @@ class SudokuAlgorithm extends Component {
 				continue;
 			}
 
-			grid[cur.row][cur.col] = i;
+			this.grid[cur.row][cur.col] = i;
 
 			const solved = this.solve(this.getNextCell(cur));
 			if (solved) {
 				return true;
 			} else {
-				grid[cur.row][cur.col] = 0;
+				this.grid[cur.row][cur.col] = 0;
 			}
 		}
 
@@ -123,20 +107,22 @@ class SudokuAlgorithm extends Component {
 	}
 
 	render() {
+		this.grid = this.props.grid;
+
 		if (this.props.hasToBeSolved) {
 			if (!this.solved()) {
 				console.log('Sudoku cannot be solved!');
 				return (
-					<SudokuGrid grid={grid} />
+					<SudokuGrid grid={this.grid} />
 				);
 			} else {
 				return (
-					<SudokuGrid grid={grid} />
+					<SudokuGrid grid={this.grid} />
 				);
 			}
 		} else {
 			return (
-				<SudokuGrid grid={grid} />
+				<SudokuGrid grid={this.grid} />
 			);
 		}
 	}

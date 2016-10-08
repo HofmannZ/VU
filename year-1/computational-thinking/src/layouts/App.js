@@ -4,10 +4,9 @@ import { BrowserRouter, Match, Miss, Link } from 'react-router';
 // Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
 import getMuiTheme from 'material-ui/styles/getMuiTheme';
-import { lightBlue500, white } from 'material-ui/styles/colors';
+import { lightBlue500 } from 'material-ui/styles/colors';
 
 import AppBar from 'material-ui/AppBar';
-import SvgIcon from 'material-ui/SvgIcon';
 import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
@@ -53,11 +52,11 @@ class App extends Component {
 	render() {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
-				<BrowserRouter>
+				<BrowserRouter basename="/vu/year/1/computational-thinking">
 					<section>
 						<nav>
 							<AppBar
-								title="Sudoku App"
+								title="Sudoku"
 								onLeftIconButtonTouchTap={this.handleToggle}
 								iconElementRight={<IconButton onTouchTap={this.handleLink}><Github /></IconButton>}
 							/>
@@ -67,7 +66,7 @@ class App extends Component {
 								onRequestChange={(open) => this.setState({ open })}
 							>
 								<AppBar
-									title="Sudoku App"
+									title="Sudoku"
 									onLeftIconButtonTouchTap={this.handleToggle}
 									iconElementLeft={
 										<IconButton>

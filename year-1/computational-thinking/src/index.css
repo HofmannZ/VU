@@ -18,12 +18,16 @@ a {
 	width: 100%;
 }
 
+.card {
+	min-height: 30vh;
+}
+
+.card__action-button {
+	margin-top: 8px;
+}
+
 @media (min-width: 640px) {
 	.card-wrapper {
 		padding-top: 60px;
 	}
-}
-
-.card {
-	min-height: 30vh;
 }
