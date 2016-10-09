@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/HofmannZ/vu/tree/master/year-1/computational-thinking.git"
   },
-	"homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
+  "homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking/",
   "author": {
     "name": "Zino Hofmann",
     "email": "z.hofmann@student.vu.nl"
@@ -25,13 +25,14 @@
     "react": "^15.3.2",
     "react-addons-css-transition-group": "^15.3.2",
     "react-dom": "^15.3.2",
-    "react-router": "^2.8.1",
+    "react-router": "^4.0.0-alpha.4",
     "react-tap-event-plugin": "^1.0.0"
   },
   "scripts": {
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test --env=jsdom",
-    "eject": "react-scripts eject"
+    "eject": "react-scripts eject",
+    "deploy": "ns ./build --cmd 'list ./content -s'"
   }
 }

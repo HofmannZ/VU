@@ -1,5 +1,5 @@
 import React, { Component } from 'react';
-import { Link } from 'react-router';
+import { BrowserRouter, Match, Miss, Link } from 'react-router';
 import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
 
 // Material UI
@@ -12,6 +12,13 @@ import Drawer from 'material-ui/Drawer';
 import IconButton from 'material-ui/IconButton';
 import NavigationClose from 'material-ui/svg-icons/navigation/close';
 import MenuItem from 'material-ui/MenuItem';
+
+// Pages
+import Home from '../pages/home/Home';
+import Research from '../pages/research/Research';
+import Sudoku from '../pages/sudoku/Sudoku';
+import Team from '../pages/team/Team';
+import NotFound from '../pages/not-found/NotFound';
 
 // Styles
 import './App.css';
@@ -50,58 +57,64 @@ class App extends Component {
 	render() {
 		return (
 			<MuiThemeProvider muiTheme={muiTheme}>
-				<section>
-					<nav>
-						<AppBar
-							title="Sudoku"
-							onLeftIconButtonTouchTap={this.handleToggle}
-							iconElementRight={<IconButton onTouchTap={this.handleLink}><Github /></IconButton>}
-						/>
-						<Drawer
-							docked={false}
-							open={this.state.open}
-							onRequestChange={(open) => this.setState({ open })}
-						>
+				<BrowserRouter basename="/vu/year/1/computational-thinking">
+					<section>
+						<nav>
 							<AppBar
 								title="Sudoku"
 								onLeftIconButtonTouchTap={this.handleToggle}
-								iconElementLeft={
-									<IconButton>
-										<NavigationClose />
-									</IconButton>
-								}
+								iconElementRight={<IconButton onTouchTap={this.handleLink}><Github /></IconButton>}
 							/>
-							<Link to="/">
-								<MenuItem onTouchTap={this.handleClose}>
-									Home
-								</MenuItem>
-							</Link>
-							<Link to="/research">
-								<MenuItem onTouchTap={this.handleClose}>
-									Research
-								</MenuItem>
-							</Link>
-							<Link to="/sudoku">
-								<MenuItem onTouchTap={this.handleClose}>
-									Sudoku
-								</MenuItem>
-							</Link>
-							<Link to="/team">
-								<MenuItem onTouchTap={this.handleClose}>
-									Meet the Team
-								</MenuItem>
-							</Link>
-						</Drawer>
-					</nav>
-					<ReactCSSTransitionGroup
-						component="main"
-						transitionName="page"
-						transitionEnterTimeout={400}
-						transitionLeaveTimeout={400}
-					>
-						{React.cloneElement(this.props.children, {key: this.props.location.pathname})}
-					</ReactCSSTransitionGroup>
-				</section>
+							<Drawer
+								docked={false}
+								open={this.state.open}
+								onRequestChange={(open) => this.setState({ open })}
+							>
+								<AppBar
+									title="Sudoku"
+									onLeftIconButtonTouchTap={this.handleToggle}
+									iconElementLeft={
+										<IconButton>
+											<NavigationClose />
+										</IconButton>
+									}
+								/>
+								<Link to="/">
+									<MenuItem onTouchTap={this.handleClose}>
+										Home
+									</MenuItem>
+								</Link>
+								<Link to="/research">
+									<MenuItem onTouchTap={this.handleClose}>
+										Research
+									</MenuItem>
+								</Link>
+								<Link to="/sudoku">
+									<MenuItem onTouchTap={this.handleClose}>
+										Sudoku
+									</MenuItem>
+								</Link>
+								<Link to="/team">
+									<MenuItem onTouchTap={this.handleClose}>
+										Meet the Team
+									</MenuItem>
+								</Link>
+							</Drawer>
+						</nav>
+						<ReactCSSTransitionGroup
+							component="main"
+							transitionName="page"
+							transitionEnterTimeout={400}
+							transitionLeaveTimeout={400}
+						>
+							<Match exactly pattern="/" component={Home} />
+							<Match pattern="/research" component={Research} />
+							<Match pattern="/sudoku" component={Sudoku} />
+							<Match pattern="/team" component={Team} />
+							<Miss component={NotFound} />
+						</ReactCSSTransitionGroup>
+					</section>
+				</BrowserRouter>
 			</MuiThemeProvider>
 		);
 	}
