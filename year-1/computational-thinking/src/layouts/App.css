@@ -1,5 +1,5 @@
 .page-enter {
-	z-index: 2;
+
 }
 
 .page-enter.page-enter-active {
@@ -9,7 +9,7 @@
 }
 
 .page-leave {
-	z-index: 1;
+
 }
 
 .page-leave.page-leave-active {
@@ -21,11 +21,11 @@
 @keyframes page-enter {
 	0% {
 		top: 100vh;
-		opacity: 0.01;
+		opacity: 0;
 	}
 	43.75% {
 		top: 100vh;
-		opacity: 0.01;
+		opacity: 0;
 	}
 	100% {
 		top: 0;
@@ -41,10 +41,10 @@
 	}
 	48.75% {
 		left: 100vw;
-		opacity: 0.01;
+		opacity: 0;
 	}
 	100% {
 		left: 100vw;
-		opacity: 0.01;
+		opacity: 0;
 	}
 }

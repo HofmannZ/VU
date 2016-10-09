@@ -139,8 +139,6 @@ class SudokuAlgorithm extends Component {
 	}
 
 	componentWillReceiveProps(nextProps) {
-		console.log('nextProps', nextProps);
-		console.log('this.props.grid === nextProps.grid', this.props.grid === nextProps.grid);
 		if (!(this.props.grid === nextProps.grid)) {
 			this.setState({
 				shouldCalculate: true
