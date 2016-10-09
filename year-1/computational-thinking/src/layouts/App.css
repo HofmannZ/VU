@@ -1,41 +1,50 @@
 .page-enter {
-	transition: all 225ms cubic-bezier(0.4, 0.0, 1, 1);
 	z-index: 2;
-	top: 100vh;
-	opacity: 0.001;
 }
 
 .page-enter.page-enter-active {
-	top: 0;
-	opacity: 1;
+	animation-name: page-enter;
+	animation-duration: 400ms;
+	transition-timing-function: cubic-bezier(0.0, 0.0, 0.2, 1);
 }
 
 .page-leave {
-	transition: all 195ms cubic-bezier(0.0, 0.0, 0.2, 1);
 	z-index: 1;
-	top: 0;
-	opacity: 1;
 }
 
 .page-leave.page-leave-active {
-	top: -100vh;
-	opacity: 0.001;
+	animation-name: page-leave;
+	animation-duration: 400ms;
+	transition-timing-function: cubic-bezier(0.4, 0.0, 1, 1);
 }
 
-@media (min-width: 640px) {
-	.page-enter {
-		padding: 0;
+@keyframes page-enter {
+	0% {
+		top: 100vh;
+		opacity: 0.01;
 	}
-
-	.page-enter.page-enter-active {
-		padding: 60px 0;
+	43.75% {
+		top: 100vh;
+		opacity: 0.01;
 	}
-
-	.page-leave {
-		padding: 60px 0;
+	100% {
+		top: 0;
+		opacity: 1;
 	}
+}
 
-	.page-leave.page-leave-active {
-		padding: 0;
+@keyframes page-leave {
+	0% {
+		left: 0;
+		top: 0;
+		opacity: 1;
+	}
+	48.75% {
+		left: 100vw;
+		opacity: 0.01;
+	}
+	100% {
+		left: 100vw;
+		opacity: 0.01;
 	}
 }

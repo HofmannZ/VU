@@ -1,7 +1,7 @@
 import React, { Component } from 'react';
 
 // Material UI
-import { Card, CardTitle, CardActions } from 'material-ui/Card';
+import { Card, CardTitle, CardText, CardActions } from 'material-ui/Card';
 import Dialog from 'material-ui/Dialog';
 import FlatButton from 'material-ui/FlatButton';
 import RaisedButton from 'material-ui/RaisedButton';
@@ -38,6 +38,7 @@ class Sudoku extends Component {
 		this.handleUpload = this.handleUpload.bind(this);
 		this.handleFileChange = this.handleFileChange.bind(this);
 		this.handleRead = this.handleRead.bind(this);
+		this.addToSum = this.addToSum.bind(this);
 
 		this.state = {
 			grid: [
@@ -54,7 +55,9 @@ class Sudoku extends Component {
 			solve: false,
 			currentSudoku: 0,
 			hasReader: false,
-			openDialog: false
+			openDialog: false,
+			sum: 0,
+			currentNumber: 0
 		};
 	}
 
@@ -119,35 +122,29 @@ class Sudoku extends Component {
 	}
 
 	nextSudoku() {
-		if (this.state.currentSudoku < 50) {
-			this.setState({
-				solve: false,
-				currentSudoku: this.state.currentSudoku + 1
-			});
-		} else {
-			this.setState({
-				solve: false,
-				currentSudoku: 0
-			});
-		}
-
+		this.setState({
+			solve: false,
+			currentNumber: 0,
+			currentSudoku: this.state.currentSudoku + 1
+		});
 		this.handleRead();
 	}
 
 	prevSudoku() {
-		if (this.state.currentSudoku > 0) {
-			this.setState({
-				solve: false,
-				currentSudoku: this.state.currentSudoku - 1
-			});
-		} else {
-			this.setState({
-				solve: false,
-				currentSudoku: 49
-			});
-		}
-
+		this.setState({
+			sum: this.state.sum - this.state.currentNumber,
+			currentNumber: 0,
+			currentSudoku: this.state.currentSudoku - 1
+		});
 		this.handleRead();
+	}
+
+	addToSum(number) {
+		this.setState({
+			solve: false,
+			sum: this.state.sum + number,
+			currentNumber: number
+		});
 	}
 
 	render() {
@@ -167,7 +164,16 @@ class Sudoku extends Component {
 			<section className="card-wrapper">
 				<Card className="card">
 					<CardTitle title="Sudoku Backtrack Algorithm" subtitle="Use our bruteforce algorithm to solve your Sudoku" />
-					<SudokuAlgorithm hasToBeSolved={this.state.solve} grid={this.state.grid} />
+					<CardText>
+						<p>The top 3 digits for grid nr.{this.state.currentSudoku + 1} is {this.state.currentNumber}. The sum of all top 3 digegts is: {this.state.sum}.</p>
+					</CardText>
+					<SudokuAlgorithm
+						hasToBeSolved={this.state.solve}
+						grid={this.state.grid}
+						hasReader={this.state.hasReader}
+						currentSudoku={this.state.currentSudoku}
+						addToSum={this.addToSum}
+					/>
 					<CardActions>
 						<RaisedButton
 							label="Upload File"
@@ -190,7 +196,7 @@ class Sudoku extends Component {
 							disabled={!(this.state.hasReader && this.state.currentSudoku < 50)}
 						/>
 						<RaisedButton
-							label="Solve the Sudoku"
+							label="Solve"
 							className="card__action-button"
 							primary={true}
 							onTouchTap={this.solveSudoku}

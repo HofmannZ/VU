@@ -96,8 +96,8 @@ class App extends Component {
 					<ReactCSSTransitionGroup
 						component="main"
 						transitionName="page"
-						transitionEnterTimeout={225}
-						transitionLeaveTimeout={195}
+						transitionEnterTimeout={400}
+						transitionLeaveTimeout={400}
 					>
 						{React.cloneElement(this.props.children, {key: this.props.location.pathname})}
 					</ReactCSSTransitionGroup>

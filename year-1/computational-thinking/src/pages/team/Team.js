@@ -11,6 +11,7 @@ import zinoHofmann from './profile-pics/zino_hofmann.jpg';
 import arianBabori from './profile-pics/arian_babori.jpg';
 import marcoPierreFernandezBurgos from './profile-pics/marco_pierre_fernandez_burgos.jpg';
 import kristinaShoyleva from './profile-pics/kristina_shoyleva.jpg';
+import oriolSubiradaJimenez from './profile-pics/oriol_subirada_jimenez.jpg';
 
 const Team = () => {
 	return (
@@ -37,6 +38,11 @@ const Team = () => {
 						<img src={kristinaShoyleva} className="team-member__avatar" alt="Kristina Shoyleva" />
 						<Subheader className="team-member__name">Kristina Shoyleva</Subheader>
 						<p className="team-member__description">Kristina helped to design the Algorithm, and wrote on the Wiki.</p>
+					</section>
+					<section className="team-member">
+						<img src={oriolSubiradaJimenez} className="team-member__avatar" alt="Oriol Subirada Jimenez" />
+						<Subheader className="team-member__name">Oriol Subirada Jimenez</Subheader>
+						<p className="team-member__description">Oriol helped to design the Algorithm, and wrote on the Wiki.</p>
 					</section>
 				</CardText>
 			</Card>

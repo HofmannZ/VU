@@ -14,6 +14,15 @@ class SudokuAlgorithm extends Component {
 		this.getNextCell = this.getNextCell.bind(this);
 		this.solve = this.solve.bind(this);
 		this.solved = this.solved.bind(this);
+		this.calculateOneSum = this.calculateOneSum.bind(this);
+
+		this.currentDigests = "";
+
+		this.state = {
+			hasToBeSolved: false,
+			shouldCalculate: true,
+			solved: false
+		}
 	}
 
 	isValid(cell, value) {
@@ -99,31 +108,60 @@ class SudokuAlgorithm extends Component {
 		return false;
 	}
 
-	solved() {
-		return this.solve({
+	solved(nextProps) {
+		let solved = this.solve({
 			row: 0,
 			col: 0
 		});
+		this.setState({
+			hasToBeSolved: true,
+			solved
+		});
+		if (this.state.shouldCalculate) {
+			this.calculateOneSum();
+			this.setState({
+				shouldCalculate: false
+			});
+		}
+	}
+
+	calculateOneSum() {
+		if (this.currentDigests.length > 0) {
+			this.currentDigests = "";
+		}
+
+		for (let i = 0; i < 3; i++) {
+			this.currentDigests += this.grid[0][i].toString();
+		}
+
+		let number = Number(this.currentDigests);
+		this.props.addToSum(number);
+	}
+
+	componentWillReceiveProps(nextProps) {
+		console.log('nextProps', nextProps);
+		console.log('this.props.grid === nextProps.grid', this.props.grid === nextProps.grid);
+		if (!(this.props.grid === nextProps.grid)) {
+			this.setState({
+				shouldCalculate: true
+			});
+		}
+		if (nextProps.hasReader && nextProps.hasToBeSolved) {
+			this.solved(nextProps);
+		}
 	}
 
 	render() {
 		this.grid = this.props.grid;
 
-		if (this.props.hasToBeSolved) {
-			if (!this.solved()) {
-				return (
-					<SudokuGrid grid={this.grid} captation="Sudoku cannot be solved!" />
-				);
-			} else {
-				return (
-					<SudokuGrid grid={this.grid} />
-				);
-			}
-		} else {
+		if (!this.state.solved && this.state.hasToBeSolved) {
 			return (
-				<SudokuGrid grid={this.grid} />
+				<SudokuGrid grid={this.grid} captation="Sudoku cannot be solved!" />
 			);
 		}
+		return (
+			<SudokuGrid grid={this.grid} />
+		);
 	}
 }
 

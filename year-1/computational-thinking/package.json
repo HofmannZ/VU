@@ -7,7 +7,7 @@
     "type": "git",
     "url": "git+https://github.com/HofmannZ/vu/tree/master/year-1/computational-thinking.git"
   },
-  "homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
+	"homepage": "http://zino.hofmann.amsterdam/vu/year/1/computational-thinking",
   "author": {
     "name": "Zino Hofmann",
     "email": "z.hofmann@student.vu.nl"
