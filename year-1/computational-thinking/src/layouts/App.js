@@ -1,6 +1,5 @@
 import React, { Component } from 'react';
-import { BrowserRouter, Match, Miss, Link } from 'react-router';
-import ReactCSSTransitionGroup from 'react-addons-css-transition-group';
+import { BrowserRouter, Link } from 'react-router';
 
 // Material UI
 import MuiThemeProvider from 'material-ui/styles/MuiThemeProvider';
@@ -24,6 +23,8 @@ import NotFound from '../pages/not-found/NotFound';
 import './App.css';
 
 // Components
+import AnimatedMatch from '../components/animated-match/AnimatedMatch';
+import AnimatedMiss from '../components/animated-miss/AnimatedMiss';
 import Github from './Github.js';
 
 const muiTheme = getMuiTheme({
@@ -101,18 +102,13 @@ class App extends Component {
 								</Link>
 							</Drawer>
 						</nav>
-						<ReactCSSTransitionGroup
-							component="main"
-							transitionName="page"
-							transitionEnterTimeout={400}
-							transitionLeaveTimeout={400}
-						>
-							<Match exactly pattern="/" component={Home} />
-							<Match pattern="/research" component={Research} />
-							<Match pattern="/sudoku" component={Sudoku} />
-							<Match pattern="/team" component={Team} />
-							<Miss component={NotFound} />
-						</ReactCSSTransitionGroup>
+						<main>
+							<AnimatedMatch exactly pattern="/" component={Home} />
+							<AnimatedMatch pattern="/research" component={Research} />
+							<AnimatedMatch pattern="/sudoku" component={Sudoku} />
+							<AnimatedMatch pattern="/team" component={Team} />
+							<AnimatedMiss component={NotFound} />
+						</main>
 					</section>
 				</BrowserRouter>
 			</MuiThemeProvider>
