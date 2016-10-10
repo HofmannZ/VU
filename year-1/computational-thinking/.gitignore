@@ -13,3 +13,26 @@ build
 .DS_Store
 .env
 npm-debug.log
+
+# MAC
+
+# folder view configuration files
+.DS_Store
+Desktop.ini
+
+# thumbnail cache files
+._*
+Thumbs.db
+
+# WIN
+
+# image file caches
+Thumbs.db
+ehthumbs.db
+
+# folder config file
+Desktop.ini
+
+# recycle bin used on file shares
+$RECYCLE.BIN/
+
