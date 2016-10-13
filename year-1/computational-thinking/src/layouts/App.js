@@ -57,8 +57,8 @@ class App extends Component {
 
 	render() {
 		return (
-			<MuiThemeProvider muiTheme={muiTheme}>
-				<BrowserRouter basename="/vu/year/1/computational-thinking">
+			<BrowserRouter basename="/vu/year/1/computational-thinking">
+				<MuiThemeProvider muiTheme={muiTheme}>
 					<section>
 						<nav>
 							<AppBar
@@ -110,8 +110,8 @@ class App extends Component {
 							<AnimatedMiss component={NotFound} />
 						</main>
 					</section>
-				</BrowserRouter>
-			</MuiThemeProvider>
+				</MuiThemeProvider>
+			</BrowserRouter>
 		);
 	}
 }
