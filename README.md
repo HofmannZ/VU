@@ -11,8 +11,6 @@ For the project assignment of Computational Thinking we had to devise a algorith
 * React.js
 
 #### My final grade:
-* Paper: To be graded
-* Presentation: To be graded
-* Code: To be graded
+* Paper, precentation and code: 7.5
 
 [Demo](http://zino.hofmann.amsterdam/vu/year/1/computational-thinking)
